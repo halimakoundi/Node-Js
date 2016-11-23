@@ -1,13 +1,13 @@
 'use strict';
 
-function makeFizzBuzz(){
+function makeFizzBuzz() {
     return new FizzBuzz();
 }
 class FizzBuzz {
 
     generate(value) {
 
-        if(Number.isInteger(parseInt(value))){
+        if (Number.isInteger(parseInt(value))) {
 
             if (isFizzBuzz(value)) {
                 return "fizz buzz";
@@ -15,11 +15,11 @@ class FizzBuzz {
             if (isFizz(value)) {
                 return "fizz";
             }
-            if(isBuzz(value)) {
+            if (isBuzz(value)) {
                 return "buzz";
             }
             return value;
-        }else{
+        } else {
             throw Error("Please provide a number");
         }
     }
@@ -30,11 +30,11 @@ function isFizz(value) {
 }
 
 function isBuzz(value) {
-    return  value % 5 == 0;
+    return value % 5 == 0;
 }
 
 function isFizzBuzz(value) {
-    return isFizz(value)  && isBuzz(value);
+    return isFizz(value) && isBuzz(value);
 }
 
-module.exports = {generate : makeFizzBuzz().generate};
+module.exports = {generate: makeFizzBuzz().generate};

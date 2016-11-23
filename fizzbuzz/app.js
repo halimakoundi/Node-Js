@@ -6,10 +6,8 @@ var app = express();
 
 app.use(authenticate);
 app.get('/fizz(buzz)/:number', function (req, res, next) {
-    var generatedResult ;
-
-        generatedResult = fizzbuzz.generate(req.params.number) ;
-        res.send('FizzBuzz generated: ' + "<br/>" + generatedResult + "<br/>" );
+    var generatedResult = fizzbuzz.generate(req.params.number) ;
+    res.send('FizzBuzz generated: ' + "<br/>" + generatedResult + "<br/>" );
 
 });
 
