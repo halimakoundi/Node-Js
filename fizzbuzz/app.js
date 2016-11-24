@@ -5,6 +5,10 @@ var express = require('express');
 var app = express();
 
 app.use(authenticate);
+app.get('/', function (req, res, next) {
+    res.send('Hello to the FizzBuzz api, to generate fizzbuzz please query ' + "<br/>" + "<a href='/fizzbuzz'>/fizzbuzz/{value}</a> <br/>" );
+
+});
 app.get('/fizz(buzz)/:number', function (req, res, next) {
     var generatedResult = fizzbuzz.generate(req.params.number) ;
     res.send('FizzBuzz generated: ' + "<br/>" + generatedResult + "<br/>" );

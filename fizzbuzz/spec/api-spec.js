@@ -7,6 +7,19 @@ chai.config.includeStack = true;
 
 var app = require('./../app');
 
+describe('Authentication access ', function() {
+    it('respond with status code 501', function(done) {
+        request(app)
+            .get('/')
+            .expect(401, done);
+    });
+    it('respond with status 200 whith valid user info ', function(done) {
+        request(app)
+            .get('?userid=bob')
+            .expect(200, done);
+    });
+});
+
 describe('GET /fizzbuzz', function() {
     it('respond with status code 200', function(done) {
         request(app)
