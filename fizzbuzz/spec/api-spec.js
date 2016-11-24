@@ -8,7 +8,12 @@ chai.config.includeStack = true;
 var app = require('./../app');
 
 describe('Authentication access ', function() {
-    it('respond with status code 501', function(done) {
+    it('respond with status code 401', function(done) {
+        request(app)
+            .get('/')
+            .expect(401, done);
+    });
+    it('respond with status code 401 with invalid user info', function(done) {
         request(app)
             .get('/')
             .expect(401, done);
